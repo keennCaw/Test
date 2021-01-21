@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="20dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/item_image_view"
+        android:layout_width="120dp"
+        android:layout_height="140dp"
+        android:background="@color/purple_200"
+        app:shapeAppearanceOverlay="@style/ImageView.BruntWork.CornerSize20Percent"/>
+
+    <TextView
+        android:id="@+id/item_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blazer"
+        android:paddingLeft="20dp"
+        android:textStyle="bold"
+        android:paddingTop="4dp"
+        android:layout_alignParentTop="true"
+        android:textSize="17sp"
+        android:layout_toRightOf="@+id/item_image_view"/>
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:text="Everyday Classic Blazer"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_below="@+id/item_category"
+        android:textSize="27sp"
+        android:paddingLeft="20dp"
+        android:layout_toRightOf="@+id/item_image_view" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/item_add_to_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="10dp"
+        android:layout_alignParentEnd="true"
+        android:text="Add"
+        app:iconGravity="end"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_baseline_add_24"
+        android:layout_below="@+id/item_name" />
+
+    <TextView
+        android:id="@+id/item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:layout_toRightOf="@id/item_image_view"
+        android:layout_alignBottom="@+id/item_add_to_cart"
+        android:text="$200"/>
+</RelativeLayout>
