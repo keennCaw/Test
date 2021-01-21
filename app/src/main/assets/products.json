@@ -1,0 +1,39 @@
+{
+	"products": [
+		{
+			"id": "p_1",
+			"name": "Flash T-Shirt",
+			"category": "Tee",
+			"price": "75.00",
+			"bgColor": "#F95A2C"
+		},
+		{
+			"id": "p_2",
+			"name": "Fur-neck Jacket",
+			"category": "Jacket",
+			"price": "315.00",
+			"bgColor": "#00C6AE"
+		},
+		{
+			"id": "p_3",
+			"name": "Everyday Classic Blazer",
+			"category": "Blazer",
+			"price": "200.00",
+			"bgColor": "#FFBD12"
+		},
+		{
+			"id": "p_4",
+			"name": "White striped T-Shirt",
+			"category": "Tee",
+			"price": "78.00",
+			"bgColor": "#FF89BB"
+		},
+		{
+			"id": "p_5",
+			"name": "Grey striped T-Shirt",
+			"category": "Tee",
+			"price": "112.00",
+			"bgColor": "#1947E5"
+		}
+	]
+}
