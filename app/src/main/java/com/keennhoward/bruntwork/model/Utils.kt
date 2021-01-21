@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork
+package com.keennhoward.bruntwork.model
 
 import android.content.Context
 import java.io.IOException
@@ -15,4 +15,6 @@ object Utils {
         }
         return jsonString
     }
+
+
 }

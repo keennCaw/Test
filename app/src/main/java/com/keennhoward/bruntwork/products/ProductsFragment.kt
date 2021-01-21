@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork
+package com.keennhoward.bruntwork.products
 
 import android.os.Bundle
 import android.util.Log
@@ -7,8 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.keennhoward.bruntwork.Utils.getJsonDataFromAsset
+import com.keennhoward.bruntwork.model.Utils.getJsonDataFromAsset
 import com.keennhoward.bruntwork.databinding.FragmentProductsBinding
 import com.keennhoward.bruntwork.model.Product
 
@@ -33,6 +32,7 @@ class ProductsFragment : Fragment() {
 
         val objectList = gson.fromJson(jsonFileString, Product::class.java)
         Log.i("data", objectList.products.size.toString())
+
         /*
         val listProductType = object : TypeToken<List<Product>>() {}.type
 
