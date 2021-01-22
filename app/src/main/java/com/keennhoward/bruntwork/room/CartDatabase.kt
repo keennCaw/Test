@@ -14,7 +14,7 @@ abstract class CartDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: CartDatabase? = null
 
-        fun getDatabaseClient(context:Context): CartDatabase{
+        fun getInstance(context:Context): CartDatabase{
             if (INSTANCE!=null) return INSTANCE!!
 
             synchronized(this){

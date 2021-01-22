@@ -8,9 +8,12 @@ import org.jetbrains.annotations.PropertyKey
 @Entity(tableName = "Cart")
 data class CartProductModel(
 
-    @PrimaryKey()
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: String,
+    var id: Int,
+
+    @ColumnInfo(name ="product_id")
+    var product_id: String,
 
     @ColumnInfo(name = "name")
     var name: String,
