@@ -12,6 +12,8 @@
         android:layout_height="140dp"
         android:background="@color/purple_200"
         android:scaleType="center"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp"
         app:shapeAppearanceOverlay="@style/ImageView.BruntWork.CornerSize20Percent"/>
 
     <TextView
@@ -43,6 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
+        style="@style/Widget.BruntWork.Button"
         android:layout_alignParentEnd="true"
         android:text="Add"
         app:iconGravity="end"

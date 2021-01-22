@@ -13,7 +13,7 @@ interface CartDAO {
     suspend fun delete(cartProductModel: CartProductModel)
 
     @Query("SELECT * FROM Cart")
-    fun getCart(): LiveData<CartProductModel>
+    fun getCart(): LiveData<List<CartProductModel>>
 
     @Query("DELETE FROM Cart")
     suspend fun clearCart()
