@@ -29,6 +29,7 @@ class ProductsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         _binding = FragmentProductsBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -39,22 +40,32 @@ class ProductsFragment : Fragment() {
 
         productsViewModel = ViewModelProvider(requireActivity(), factory).get(ProductsViewModel::class.java)
 
+        val productsAdapter = ProductsAdapter(productsViewModel.products, requireActivity().application)
+
         binding.productsRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireActivity())
-            adapter = ProductsAdapter(productsViewModel.products, requireActivity().application)
+            adapter = productsAdapter
         }
 
 
-        /*
-        val jsonFileString = getJsonDataFromAsset(view.context, "products.json")
-        Log.i("data", jsonFileString)
+        //filter chips
+        binding.chipTees.setOnClickListener {
+            productsAdapter.showListByCategory(getCheckedChips(binding.chipGroup.checkedChipIds))
+        }
 
-        val gson = Gson()
+        binding.chipAll.setOnClickListener {
+            productsAdapter.showListByCategory(getCheckedChips(binding.chipGroup.checkedChipIds))
+        }
 
-        val objectList = gson.fromJson(jsonFileString, Product::class.java)
-        Log.i("data", objectList.products.size.toString())
+        binding.chipBlazers.setOnClickListener {
+            productsAdapter.showListByCategory(getCheckedChips(binding.chipGroup.checkedChipIds))
+        }
 
-         */
+        binding.chipJackets.setOnClickListener {
+            productsAdapter.showListByCategory(getCheckedChips(binding.chipGroup.checkedChipIds))
+        }
+
+
         return view
     }
 
@@ -62,5 +73,25 @@ class ProductsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+
+    private fun getCheckedChips(ids: List<Int>):MutableList<String>{
+        var resultList: MutableList<String> = mutableListOf()
+        for(id in ids){
+            if(binding.chipTees.id.toString() == id.toString() ){
+                resultList.add(binding.chipTees.text.toString())
+            }
+            if(binding.chipJackets.id == id){
+                resultList.add(binding.chipJackets.text.toString())
+            }
+            if(binding.chipAll.id == id){
+                resultList.add(binding.chipAll.text.toString())
+            }
+            if(binding.chipBlazers.id == id){
+                resultList.add(binding.chipBlazers.text.toString())
+            }
+        }
+        return resultList
     }
 }
