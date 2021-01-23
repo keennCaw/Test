@@ -26,16 +26,16 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
+        setHasOptionsMenu(false)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
         val menuItem: MenuItem = menu!!.findItem(R.id.action_cart)
         menuItem.actionView.setOnClickListener {
-
+            Navigation.findNavController(binding.root).navigate(R.id.action_productsFragment_to_cartFragment)
         }
     }
+
 
 
     override fun onCreateView(

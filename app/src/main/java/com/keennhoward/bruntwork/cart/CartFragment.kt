@@ -1,10 +1,8 @@
 package com.keennhoward.bruntwork.cart
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,6 +36,7 @@ class CartFragment : Fragment() {
 
         val cartAdapter = CartAdapter()
 
+
         binding.cartRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = cartAdapter
@@ -53,5 +52,9 @@ class CartFragment : Fragment() {
 
 
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
     }
 }
