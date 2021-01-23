@@ -12,8 +12,12 @@ import com.keennhoward.bruntwork.databinding.ItemProductBinding
 import com.keennhoward.bruntwork.model.Product
 import java.util.ArrayList
 
-class ProductsAdapter(private val productData: Product, private val application: Application) :
-    RecyclerView.Adapter<MyViewHolder>() {
+class ProductsAdapter(
+    private val productData: Product,
+    private val application: Application,
+    val listener: ItemClickListener
+) :
+    RecyclerView.Adapter<ProductsViewHolder>() {
 
     private var productList = productData.products
 
@@ -21,15 +25,15 @@ class ProductsAdapter(private val productData: Product, private val application:
 
     private var filteredList: ArrayList<Product.ProductData> = arrayListOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
         val productBinding =
             ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MyViewHolder(productBinding, application)
+        return ProductsViewHolder(productBinding, application, listener)
     }
 
     override fun getItemCount(): Int = productList.size
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
         val productData: Product.ProductData = productList[position]
         holder.bind(productData)
     }
@@ -38,12 +42,13 @@ class ProductsAdapter(private val productData: Product, private val application:
     //Filter Adapter List by Category
     fun showListByCategory(categoryList: List<String>) {
         filteredList.clear()
-        loop@ for(category in categoryList){
-            Log.d("category",category)
+        loop@ for (category in categoryList) {
+            Log.d("category", category)
             when (category) {
                 "All" -> {
                     this.productList = allProductList
-                    break@loop
+                    notifyDataSetChanged()
+                    return
                 }
                 "Tees" -> {
                     this.filteredList.addAll(allProductList.filter { it.category == "Tee" })
@@ -64,9 +69,17 @@ class ProductsAdapter(private val productData: Product, private val application:
         notifyDataSetChanged()
     }
 
+    interface ItemClickListener {
+        fun onAddProductClickListener(product: Product.ProductData)
+    }
+
 }
 
-class MyViewHolder(val binding: ItemProductBinding, private val application: Application) :
+class ProductsViewHolder(
+    val binding: ItemProductBinding,
+    private val application: Application,
+    private val listener: ProductsAdapter.ItemClickListener
+) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(productData: Product.ProductData) {
         binding.itemName.text = productData.name
@@ -74,10 +87,15 @@ class MyViewHolder(val binding: ItemProductBinding, private val application: App
         binding.itemPrice.text = "$ ${productData.price}"
         binding.itemImageView.setBackgroundColor(productData.bgColor.toColorInt())
 
+        //set image from drawable using product id
         val resID =
             application.resources.getIdentifier(productData.id, "drawable", application.packageName)
-
         val bm: Bitmap = BitmapFactory.decodeResource(application.resources, resID)
         binding.itemImageView.setImageBitmap(Bitmap.createScaledBitmap(bm, 240, 240, false))
+
+        binding.itemAddToCart.setOnClickListener {
+            listener.onAddProductClickListener(productData)
+        }
     }
+
 }

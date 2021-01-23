@@ -21,5 +21,4 @@ class ProductsRepository(private val dao: CartDAO) {
         return gson.fromJson(jsonFileString, Product::class.java)
     }
 
-
 }

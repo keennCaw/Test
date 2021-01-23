@@ -1,17 +1,17 @@
 package com.keennhoward.bruntwork.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.keennhoward.bruntwork.R
-import com.keennhoward.bruntwork.model.Product
+import com.keennhoward.bruntwork.cart.CartFragment
 import com.keennhoward.bruntwork.room.CartDatabase
-import com.keennhoward.bruntwork.room.CartProductModel
 
 private var cartCount: Int = 10
 private lateinit var textCartItemCount: TextView
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                 textCartItemCount.visibility = View.VISIBLE
             }
         })
-
         return true
     }
+
 }

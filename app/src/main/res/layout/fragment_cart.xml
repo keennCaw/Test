@@ -1,9 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CartFragment">
+    tools:context=".cart.CartFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/cart_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:text="Cart"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cart_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            tools:listitem="@layout/item_cart"
+            app:layout_constraintBottom_toTopOf="@+id/cart_bottom_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cart_text_view" />
+
+        <RelativeLayout
+            android:id="@+id/cart_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/cart_total_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="$200"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cart_buy_now_button"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@color/white"
+                android:text="Buy Now"
+                android:textSize="20sp"
+                app:iconGravity="end"
+                app:icon="@drawable/ic_baseline_navigate_next_24"
+                app:iconTint="@color/white"
+                android:textAllCaps="false"
+                android:layout_alignParentEnd="true"
+                android:backgroundTint="@color/bruntwork_black"
+                app:cornerRadius="10dp"/>
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </FrameLayout>
