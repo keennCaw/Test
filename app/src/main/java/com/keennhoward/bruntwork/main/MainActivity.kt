@@ -12,9 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.keennhoward.bruntwork.R
-import com.keennhoward.bruntwork.cart.CartFragment
 import com.keennhoward.bruntwork.databinding.ActivityMainBinding
-import com.keennhoward.bruntwork.room.CartDatabase
+import com.keennhoward.bruntwork.db.room.CartDatabase
 
 private var check = false
 private lateinit var textCartItemCount: TextView

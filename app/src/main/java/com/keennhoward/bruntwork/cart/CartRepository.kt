@@ -1,7 +1,7 @@
 package com.keennhoward.bruntwork.cart
 
-import com.keennhoward.bruntwork.room.CartDAO
-import com.keennhoward.bruntwork.room.CartProductModel
+import com.keennhoward.bruntwork.db.room.CartDAO
+import com.keennhoward.bruntwork.db.room.CartProductModel
 
 class CartRepository(private val dao: CartDAO) {
 

@@ -9,11 +9,7 @@
         android:id="@+id/productsFragment"
         android:name="com.keennhoward.bruntwork.products.ProductsFragment"
         android:label="fragment_products"
-        tools:layout="@layout/fragment_products" >
-        <action
-            android:id="@+id/action_productsFragment_to_cartFragment"
-            app:destination="@id/cartFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_products" />
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.keennhoward.bruntwork.cart.CartFragment"
@@ -25,15 +21,12 @@
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
-        android:name="com.keennhoward.bruntwork.CheckoutFragment"
+        android:name="com.keennhoward.bruntwork.checkout.CheckoutFragment"
         android:label="fragment_checkout"
         tools:layout="@layout/fragment_checkout" >
         <action
             android:id="@+id/action_checkoutFragment_to_orderConfirmationFragment"
             app:destination="@id/orderConfirmationFragment" />
-        <action
-            android:id="@+id/action_checkoutFragment_to_cartFragment"
-            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderConfirmationFragment"
@@ -43,8 +36,5 @@
         <action
             android:id="@+id/action_orderConfirmationFragment_to_productsFragment"
             app:destination="@id/productsFragment" />
-        <action
-            android:id="@+id/action_orderConfirmationFragment_to_cartFragment"
-            app:destination="@id/cartFragment" />
     </fragment>
 </navigation>

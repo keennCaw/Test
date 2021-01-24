@@ -2,8 +2,7 @@ package com.keennhoward.bruntwork.cart
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.keennhoward.bruntwork.products.ProductsRepository
-import com.keennhoward.bruntwork.room.CartProductModel
+import com.keennhoward.bruntwork.db.room.CartProductModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 

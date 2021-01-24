@@ -1,9 +1,8 @@
-package com.keennhoward.bruntwork.room
+package com.keennhoward.bruntwork.db.room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import org.jetbrains.annotations.PropertyKey
 
 @Entity(tableName = "Cart")
 data class CartProductModel(

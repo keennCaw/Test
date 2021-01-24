@@ -6,15 +6,11 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.keennhoward.bruntwork.R
-import com.keennhoward.bruntwork.model.Utils.getJsonDataFromAsset
 import com.keennhoward.bruntwork.databinding.FragmentProductsBinding
 import com.keennhoward.bruntwork.model.Product
-import com.keennhoward.bruntwork.room.CartDatabase
-import com.keennhoward.bruntwork.room.CartProductModel
+import com.keennhoward.bruntwork.db.room.CartDatabase
+import com.keennhoward.bruntwork.db.room.CartProductModel
 
 class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
 

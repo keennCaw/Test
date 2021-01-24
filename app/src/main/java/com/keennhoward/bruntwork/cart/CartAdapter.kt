@@ -7,15 +7,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.keennhoward.bruntwork.databinding.ItemCartBinding
-import com.keennhoward.bruntwork.room.CartProductModel
+import com.keennhoward.bruntwork.db.room.CartProductModel
 
 class CartAdapter(val listener: CartItemClickListener) : ListAdapter<CartProductModel,CartViewHolder>(CartDiffUtil()) {
 
-   // var cartProducts = ArrayList<CartProductModel>()
-
-    //fun setListData(products: ArrayList<CartProductModel>) {
-    //    this.cartProducts = products
-   // }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val cartBinding =
@@ -33,6 +28,7 @@ interface CartItemClickListener {
     fun onDeleteCartItemClickListener(cartItem: CartProductModel)
 }
 
+
 class CartViewHolder(
     private val binding: ItemCartBinding,
     private val listener: CartItemClickListener
@@ -49,6 +45,7 @@ class CartViewHolder(
     }
 }
 
+//DiffUtil for CartAdapter ListAdapter
 class CartDiffUtil: DiffUtil.ItemCallback<CartProductModel>(){
     override fun areItemsTheSame(oldItem: CartProductModel, newItem: CartProductModel): Boolean {
         return oldItem.id == newItem.id

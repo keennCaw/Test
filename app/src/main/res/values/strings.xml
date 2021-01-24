@@ -1,5 +1,13 @@
 <resources>
-    <string name="app_name">BruntWork</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Shop</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="checkout_title">Checkout</string>
+    <string name="et_title_name">Your_name</string>
+    <string name="et_title_email">Your email</string>
+    <string name="et_hint_name">e.g Jane Doe</string>
+    <string name="et_hint_email">e.g jane@company.co</string>
+    <string name="checkout_terms_message">I agree to the terms and conditions</string>
+
+
 </resources>

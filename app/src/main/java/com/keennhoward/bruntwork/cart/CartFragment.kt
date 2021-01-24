@@ -5,13 +5,12 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.keennhoward.bruntwork.R
 import com.keennhoward.bruntwork.databinding.FragmentCartBinding
-import com.keennhoward.bruntwork.databinding.FragmentProductsBinding
-import com.keennhoward.bruntwork.products.ProductsRepository
-import com.keennhoward.bruntwork.room.CartDatabase
-import com.keennhoward.bruntwork.room.CartProductModel
+import com.keennhoward.bruntwork.db.room.CartDatabase
+import com.keennhoward.bruntwork.db.room.CartProductModel
 
 
 class CartFragment : Fragment(), CartItemClickListener {
@@ -47,12 +46,15 @@ class CartFragment : Fragment(), CartItemClickListener {
             adapter = cartAdapter
         }
 
+        //cart LiveData observer
         cartViewModel.cart.observe(requireActivity(), Observer {
-           // cartAdapter.setListData(ArrayList(it))
-            //cartAdapter.notifyDataSetChanged()
             cartAdapter.submitList(ArrayList(it))
             binding.cartTotalTextView.text = "$ ${cartTotalPrice(ArrayList(it))}"
         })
+
+        binding.cartBuyNowButton.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_cartFragment_to_checkoutFragment)
+        }
 
         return view
     }
@@ -65,6 +67,7 @@ class CartFragment : Fragment(), CartItemClickListener {
     //get cart Total Price
     private fun cartTotalPrice(cart:ArrayList<CartProductModel>):Double{
         var totalPrice = 0.00
+
         for(cartItem in cart){
             totalPrice += cartItem.price.toDouble()
         }

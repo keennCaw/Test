@@ -4,8 +4,8 @@ import android.app.Application
 import com.google.gson.Gson
 import com.keennhoward.bruntwork.model.Product
 import com.keennhoward.bruntwork.model.Utils
-import com.keennhoward.bruntwork.room.CartDAO
-import com.keennhoward.bruntwork.room.CartProductModel
+import com.keennhoward.bruntwork.db.room.CartDAO
+import com.keennhoward.bruntwork.db.room.CartProductModel
 
 class ProductsRepository(private val dao: CartDAO) {
 

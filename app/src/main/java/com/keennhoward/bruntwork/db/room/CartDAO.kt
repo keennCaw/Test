@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.room
+package com.keennhoward.bruntwork.db.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

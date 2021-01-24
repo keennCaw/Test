@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.room
+package com.keennhoward.bruntwork.db.room
 
 import android.content.Context
 import androidx.room.Database
