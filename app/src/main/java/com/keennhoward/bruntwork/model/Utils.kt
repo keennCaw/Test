@@ -16,5 +16,4 @@ object Utils {
         return jsonString
     }
 
-
 }
