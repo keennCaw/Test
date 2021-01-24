@@ -40,16 +40,17 @@ class CartFragment : Fragment(), CartItemClickListener {
         val repository = CartRepository(dao)
         val factory = CartViewModelFactory(repository)
         val cartAdapter = CartAdapter(this)
+        cartViewModel = ViewModelProvider(requireActivity(),factory).get(CartViewModel::class.java)
+
         binding.cartRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = cartAdapter
         }
 
-        cartViewModel = ViewModelProvider(requireActivity(),factory).get(CartViewModel::class.java)
-
         cartViewModel.cart.observe(requireActivity(), Observer {
-            cartAdapter.setListData(ArrayList(it))
-            cartAdapter.notifyDataSetChanged()
+           // cartAdapter.setListData(ArrayList(it))
+            //cartAdapter.notifyDataSetChanged()
+            cartAdapter.submitList(ArrayList(it))
             binding.cartTotalTextView.text = "$ ${cartTotalPrice(ArrayList(it))}"
         })
 
