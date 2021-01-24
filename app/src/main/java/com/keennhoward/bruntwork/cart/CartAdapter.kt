@@ -7,17 +7,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.keennhoward.bruntwork.databinding.ItemCartBinding
 import com.keennhoward.bruntwork.room.CartProductModel
 
-class CartAdapter():RecyclerView.Adapter<CartViewHolder>() {
+class CartAdapter(val listener: CartItemClickListener) : RecyclerView.Adapter<CartViewHolder>() {
 
     var cartProducts = ArrayList<CartProductModel>()
 
-    fun setListData(products: ArrayList<CartProductModel>){
+    fun setListData(products: ArrayList<CartProductModel>) {
         this.cartProducts = products
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
-        val cartBinding = ItemCartBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CartViewHolder(cartBinding)
+        val cartBinding =
+            ItemCartBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return CartViewHolder(cartBinding, listener)
     }
 
     override fun getItemCount(): Int = cartProducts.size
@@ -29,11 +30,25 @@ class CartAdapter():RecyclerView.Adapter<CartViewHolder>() {
     }
 }
 
-class CartViewHolder(val binding: ItemCartBinding ): RecyclerView.ViewHolder(binding.root){
+//cart item click listener interface to pass cartItem onClick
+interface CartItemClickListener {
+    fun onDeleteCartItemClickListener(cartItem: CartProductModel)
+}
 
-    fun bind(cartProductModel: CartProductModel){
-        binding.cartItemProductName.text = cartProductModel.name
-        binding.cartItemPrice.text = cartProductModel.price
-        binding.cartItemBg.setBackgroundColor(cartProductModel.bgColor.toColorInt())
+
+
+class CartViewHolder(
+    private val binding: ItemCartBinding,
+    private val listener: CartItemClickListener
+) : RecyclerView.ViewHolder(binding.root) {
+
+    fun bind(cartItem: CartProductModel) {
+        binding.cartItemProductName.text = cartItem.name
+        binding.cartItemPrice.text = cartItem.price
+        binding.cartItemBg.setBackgroundColor(cartItem.bgColor.toColorInt())
+
+        binding.cartItemDelete.setOnClickListener {
+            listener.onDeleteCartItemClickListener(cartItem)
+        }
     }
 }

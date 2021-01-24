@@ -24,19 +24,12 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
 
     private val binding get() = _binding!!
 
+    //setHasOptions menu to false so action bar does not get updated on fragment change
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(false)
     }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        val menuItem: MenuItem = menu!!.findItem(R.id.action_cart)
-        menuItem.actionView.setOnClickListener {
-            Navigation.findNavController(binding.root).navigate(R.id.action_productsFragment_to_cartFragment)
-        }
-    }
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,25 +38,23 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
 
         // Inflate the layout for this fragment
         _binding = FragmentProductsBinding.inflate(inflater, container, false)
-        val view = binding.root
 
+        //initialize fragment adapter for recyclerview
+        val view = binding.root
         val dao = CartDatabase.getInstance(requireActivity().application).cartDao()
         val repository = ProductsRepository(dao)
         val factory = ProductsViewModelFactory(repository, requireActivity().application)
-
         productsViewModel =
             ViewModelProvider(requireActivity(), factory).get(ProductsViewModel::class.java)
-
         val productsAdapter =
             ProductsAdapter(productsViewModel.products, requireActivity().application, this)
-
         binding.productsRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = productsAdapter
         }
 
 
-        //filter chips
+        //filter chips based on chips on getCheckedChips function
         binding.chipTees.setOnClickListener {
             productsAdapter.showListByCategory(getCheckedChips(binding.chipGroup.checkedChipIds))
         }
@@ -90,7 +81,7 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
         _binding = null
     }
 
-
+    //get all checked chips from UI
     private fun getCheckedChips(ids: List<Int>): MutableList<String> {
         var resultList: MutableList<String> = mutableListOf()
         for (id in ids) {
@@ -110,7 +101,9 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
         return resultList
     }
 
+    //click listener from adapter class which passes product
     override fun onAddProductClickListener(product: Product.ProductData) {
+        //map ProductData to cartProductModel
         val cartProductModel = CartProductModel(
             id = 0,
             product_id = product.id,
@@ -119,7 +112,10 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
             price = product.price,
             bgColor = product.bgColor
         )
+        //insert to DB
         productsViewModel.insert(cartProductModel)
+
+        //Temporary Toast Message
         Toast.makeText(
             requireActivity(),
             "Added: ${cartProductModel.name} to Cart",

@@ -69,6 +69,8 @@ class ProductsAdapter(
         notifyDataSetChanged()
     }
 
+
+    //add product click listener interface to pass product onClick
     interface ItemClickListener {
         fun onAddProductClickListener(product: Product.ProductData)
     }

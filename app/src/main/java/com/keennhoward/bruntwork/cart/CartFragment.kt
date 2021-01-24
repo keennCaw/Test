@@ -14,13 +14,19 @@ import com.keennhoward.bruntwork.room.CartDatabase
 import com.keennhoward.bruntwork.room.CartProductModel
 
 
-class CartFragment : Fragment() {
+class CartFragment : Fragment(), CartItemClickListener {
 
     private var _binding: FragmentCartBinding? = null
 
     private lateinit var cartViewModel: CartViewModel
 
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(false) //false to not update action bar
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,10 +39,7 @@ class CartFragment : Fragment() {
         val dao = CartDatabase.getInstance(requireActivity().application).cartDao()
         val repository = CartRepository(dao)
         val factory = CartViewModelFactory(repository)
-
-        val cartAdapter = CartAdapter()
-
-
+        val cartAdapter = CartAdapter(this)
         binding.cartRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = cartAdapter
@@ -47,14 +50,24 @@ class CartFragment : Fragment() {
         cartViewModel.cart.observe(requireActivity(), Observer {
             cartAdapter.setListData(ArrayList(it))
             cartAdapter.notifyDataSetChanged()
+            binding.cartTotalTextView.text = "$ ${cartTotalPrice(ArrayList(it))}"
         })
-        //val cartAdapter = CartAdapter()
-
 
         return view
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
+    //cart delete click listener interface in adapter class which passes cartItem
+    override fun onDeleteCartItemClickListener(cartItem: CartProductModel) {
+        cartViewModel.delete(cartItem)
     }
+
+    //get cart Total Price
+    private fun cartTotalPrice(cart:ArrayList<CartProductModel>):Double{
+        var totalPrice = 0.00
+        for(cartItem in cart){
+            totalPrice += cartItem.price.toDouble()
+        }
+        return totalPrice
+    }
+
 }
