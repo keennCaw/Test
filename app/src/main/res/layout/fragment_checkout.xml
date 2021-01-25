@@ -87,7 +87,7 @@
                 style="@style/Widget.BruntWork.Button.Pay"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:text="PAY $350" />
+                android:text="Pay $350" />
 
         </LinearLayout>
 

@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.keennhoward.bruntwork.R
+import com.keennhoward.bruntwork.databinding.CustomToastBinding
 import com.keennhoward.bruntwork.databinding.FragmentProductsBinding
 import com.keennhoward.bruntwork.model.Product
 import com.keennhoward.bruntwork.db.room.CartDatabase
@@ -15,6 +17,8 @@ import com.keennhoward.bruntwork.db.room.CartProductModel
 class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
 
     private var _binding: FragmentProductsBinding? = null
+
+
 
     private lateinit var productsViewModel: ProductsViewModel
 
@@ -32,6 +36,8 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
     ): View? {
 
         _binding = FragmentProductsBinding.inflate(inflater, container, false)
+
+        toastBinding = CustomToastBinding.inflate(inflater,container,false)
 
         //initialize fragment adapter for recyclerview
         val view = binding.root
@@ -110,10 +116,17 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
         productsViewModel.insert(cartProductModel)
 
         //Temporary Toast Message
-        Toast.makeText(
-            requireActivity(),
-            "Added: ${cartProductModel.name} to Cart",
-            Toast.LENGTH_SHORT
-        )
+        showToastMessage()
+    }
+
+    private var toastBinding:CustomToastBinding? = null
+
+    fun showToastMessage(){
+        val layout = layoutInflater.inflate(R.layout.custom_toast, toastBinding!!.toastLayout)
+        val toast = Toast(requireContext())
+        toast.duration = Toast.LENGTH_SHORT
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0)
+        toast.view = layout
+        toast.show()
     }
 }

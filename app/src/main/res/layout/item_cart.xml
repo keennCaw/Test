@@ -7,7 +7,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="150dp"
         android:layout_marginHorizontal="30dp"
         app:cardCornerRadius="20dp">
 
@@ -39,8 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
-                style="@style/Widget.BruntWork.Text.24b"
-                android:text="$ 200"
+                style="@style/Widget.BruntWork.Text.Product.Price"
+                android:text="$200"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/cart_item_product_name"/>
 

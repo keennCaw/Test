@@ -33,10 +33,8 @@
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:text="Everyday Classic Blazer"
-        android:textStyle="bold"
-        android:textColor="@color/black"
+        style="@style/Widget.BruntWork.Text.24b"
         android:layout_below="@+id/item_category"
-        android:textSize="27sp"
         android:paddingLeft="20dp"
         android:layout_toRightOf="@+id/item_image_view" />
 
@@ -57,10 +55,10 @@
         android:id="@+id/item_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:paddingLeft="20dp"
-        android:textColor="@color/black"
-        android:textSize="32sp"
+        android:layout_marginBottom="3dp"
+        style="@style/Widget.BruntWork.Text.Product.Price"
+        android:textSize="30sp"
         android:layout_toRightOf="@id/item_image_view"
         android:layout_alignBottom="@+id/item_add_to_cart"
         android:text="$200"/>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toast_layout">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/toast_background"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/bruntwork_orange"
+        app:strokeColor="@color/bruntwork_black"
+        app:strokeWidth="4dp"
+        android:layout_margin="2dp"
+        android:layout_alignParentBottom="true"
+        app:shapeAppearanceOverlay="@style/ImageView.BruntWork.CornerSize20dp"
+        />
+    <TextView
+        android:id="@+id/toast_message"
+        android:layout_alignTop="@+id/toast_background"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kaboob"
+        style="@style/Widget.BruntWork.Text.24b"/>
+
+</RelativeLayout>

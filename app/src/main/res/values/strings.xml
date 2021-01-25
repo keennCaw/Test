@@ -14,7 +14,7 @@
     <string name="cart_products_button">Products</string>
 
     <string name="checkout_title">Checkout</string>
-    <string name="et_title_name">Your_name</string>
+    <string name="et_title_name">Your name</string>
     <string name="et_title_email">Your email</string>
     <string name="et_hint_name">e.g Jane Doe</string>
     <string name="et_hint_email">e.g jane@company.co</string>
