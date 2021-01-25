@@ -58,7 +58,7 @@
         android:paddingLeft="20dp"
         android:layout_marginBottom="3dp"
         style="@style/Widget.BruntWork.Text.Product.Price"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:layout_toRightOf="@id/item_image_view"
         android:layout_alignBottom="@+id/item_add_to_cart"
         android:text="$200"/>

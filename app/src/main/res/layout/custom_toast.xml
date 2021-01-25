@@ -8,8 +8,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/toast_background"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
         android:background="@color/bruntwork_orange"
         app:strokeColor="@color/bruntwork_black"
         app:strokeWidth="4dp"
@@ -21,9 +21,25 @@
         android:id="@+id/toast_message"
         android:layout_alignTop="@+id/toast_background"
         android:layout_margin="20dp"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:text="kaboob"
-        style="@style/Widget.BruntWork.Text.24b"/>
+        android:text="Fur-neck Jacket has been added to your cart."
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/toast_close"
+        android:layout_alignTop="@+id/toast_background"
+        android:layout_alignRight="@+id/toast_background"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_baseline_close_24"
+        android:tint="@color/black"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/black"
+        app:shapeAppearanceOverlay="@style/circleImageView" />
 
 </RelativeLayout>

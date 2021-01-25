@@ -1,10 +1,15 @@
 package com.keennhoward.bruntwork.fragments.products
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.view.*
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.core.graphics.toColorInt
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.keennhoward.bruntwork.R
@@ -18,7 +23,7 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
 
     private var _binding: FragmentProductsBinding? = null
 
-
+    private var parent:View? = null
 
     private lateinit var productsViewModel: ProductsViewModel
 
@@ -37,7 +42,7 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
 
         _binding = FragmentProductsBinding.inflate(inflater, container, false)
 
-        toastBinding = CustomToastBinding.inflate(inflater,container,false)
+        parent = inflater.inflate(R.layout.fragment_products, container,false)
 
         //initialize fragment adapter for recyclerview
         val view = binding.root
@@ -116,13 +121,17 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
         productsViewModel.insert(cartProductModel)
 
         //Temporary Toast Message
-        showToastMessage()
+        showToastMessage(product.name, product.bgColor)
     }
 
-    private var toastBinding:CustomToastBinding? = null
 
-    fun showToastMessage(){
-        val layout = layoutInflater.inflate(R.layout.custom_toast, toastBinding!!.toastLayout)
+    private fun showToastMessage(productName:String, bgColor: String){
+        val layout = layoutInflater.inflate(R.layout.custom_toast, parent!!.findViewById(R.id.toast_layout))
+        val message = "<b>$productName</b> has been added to your cart"
+
+        layout.findViewById<TextView>(R.id.toast_message).text = Html.fromHtml(message)
+        layout.findViewById<ImageView>(R.id.toast_background).setBackgroundColor(bgColor.toColorInt())
+
         val toast = Toast(requireContext())
         toast.duration = Toast.LENGTH_SHORT
         toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0)

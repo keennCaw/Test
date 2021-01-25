@@ -113,8 +113,8 @@
         <item name="fontFamily">@font/montserrat_regular</item>
     </style>
 
-    <style name="Widget.BruntWork.Text.40b" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">40sp</item>
+    <style name="Widget.BruntWork.Text.30b" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black</item>
     </style>
