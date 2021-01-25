@@ -1,7 +1,6 @@
 package com.keennhoward.bruntwork.main
 
 import android.os.Bundle
-import android.text.Html
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -11,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.Navigation
 import com.keennhoward.bruntwork.R
 import com.keennhoward.bruntwork.databinding.ActivityMainBinding

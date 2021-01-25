@@ -11,6 +11,7 @@
 
     <string name="cart_title">Cart</string>
     <string name="cart_buy_now_button">Buy Now</string>
+    <string name="cart_products_button">Products</string>
 
     <string name="checkout_title">Checkout</string>
     <string name="et_title_name">Your_name</string>

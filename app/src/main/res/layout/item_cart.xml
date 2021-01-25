@@ -30,8 +30,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="20dp"
-                android:textStyle="bold"
-                android:textSize="24sp"
+                style="@style/Widget.BruntWork.Text.24b"
                 android:text="Everday Classic Blazer"/>
 
             <TextView
@@ -40,8 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                style="@style/Widget.BruntWork.Text.24b"
                 android:text="$ 200"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/cart_item_product_name"/>

@@ -51,10 +51,25 @@ class CartFragment : Fragment(), CartItemClickListener {
         cartViewModel.cart.observe(requireActivity(), Observer {
             cartAdapter.submitList(ArrayList(it))
             binding.cartTotalTextView.text = "$ ${Utils.cartTotalPrice(ArrayList(it))}"
+
+            //changes the button to go back when cart is empty
+            if(context != null){ //context check when updating UI from observer
+                if(it.isEmpty()){
+                    binding.cartBuyNowButton.text = getString(R.string.cart_products_button)
+                }else{
+                    binding.cartBuyNowButton.text = getString(R.string.cart_buy_now_button)
+                }
+            }
         })
 
         binding.cartBuyNowButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_cartFragment_to_checkoutFragment)
+            //navigate to checkout fragment when cart is not empty
+            //navigates to products fragment when cart is empty
+            if(binding.cartBuyNowButton.text == getString(R.string.cart_buy_now_button)){
+                Navigation.findNavController(view).navigate(R.id.action_cartFragment_to_checkoutFragment)
+            }else{
+                Navigation.findNavController(view).navigate(R.id.action_cartFragment_to_productsFragment)
+            }
         }
 
         return view

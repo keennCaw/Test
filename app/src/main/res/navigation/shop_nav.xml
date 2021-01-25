@@ -18,6 +18,12 @@
         <action
             android:id="@+id/action_cartFragment_to_checkoutFragment"
             app:destination="@id/checkoutFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_productsFragment"
+            app:destination="@id/productsFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/shop_nav"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
