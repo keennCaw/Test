@@ -1,9 +1,7 @@
 package com.keennhoward.bruntwork.main
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.keennhoward.bruntwork.products.ProductsViewModel
 
 class MainViewModelFactory(private val repository: MainRepository):ViewModelProvider.Factory {
 

@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        style="@style/Widget.BruntWork.Button"
+        style="@style/Widget.BruntWork.Button.Light"
         android:layout_alignParentEnd="true"
         android:text="Add"
         app:iconGravity="end"

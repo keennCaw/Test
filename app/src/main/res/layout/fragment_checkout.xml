@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".checkout.CheckoutFragment">
+    tools:context=".fragments.checkout.CheckoutFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,20 +17,18 @@
             android:orientation="vertical">
 
             <TextView
+                style="@style/Widget.BruntWork.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:text="@string/checkout_title"
-                android:textSize="36sp"
-                android:textStyle="bold" />
+                android:text="@string/checkout_title" />
 
             <TextView
+                style="@style/Widget.BruntWork.Title.Mini"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="@string/et_title_name"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:text="@string/et_title_name" />
 
             <EditText
                 android:id="@+id/checkout_name"
@@ -43,17 +41,16 @@
                 android:padding="20dp" />
 
             <TextView
+                style="@style/Widget.BruntWork.Title.Mini"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="@string/et_title_email"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:text="@string/et_title_email" />
 
             <EditText
                 android:id="@+id/checkout_email"
-                android:layout_width="match_parent"
                 style="@style/Widget.BruntWork.EditText"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/custom_input"
@@ -75,22 +72,22 @@
                     app:track="@drawable/switch_track" />
 
                 <TextView
+                    style="@style/Widget.BruntWork.Title.Mini"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_margin="13dp"
                     android:layout_toRightOf="@+id/checkout_terms_switch"
-                    android:text="@string/checkout_terms_message"
-                    android:textStyle="bold" />
+                    android:text="@string/checkout_terms_message" />
 
             </RelativeLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/checkout_button"
+                style="@style/Widget.BruntWork.Button.Pay"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                style="@style/Widget.BruntWork.Button.Pay"
-                android:text="PAY $350"/>
+                android:text="PAY $350" />
 
         </LinearLayout>
 

@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/productsFragment"
-        android:name="com.keennhoward.bruntwork.products.ProductsFragment"
+        android:name="com.keennhoward.bruntwork.fragments.products.ProductsFragment"
         android:label="fragment_products"
         tools:layout="@layout/fragment_products" />
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.keennhoward.bruntwork.cart.CartFragment"
+        android:name="com.keennhoward.bruntwork.fragments.cart.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" >
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
-        android:name="com.keennhoward.bruntwork.checkout.CheckoutFragment"
+        android:name="com.keennhoward.bruntwork.fragments.checkout.CheckoutFragment"
         android:label="fragment_checkout"
         tools:layout="@layout/fragment_checkout" >
         <action
@@ -30,11 +30,18 @@
     </fragment>
     <fragment
         android:id="@+id/orderConfirmationFragment"
-        android:name="com.keennhoward.bruntwork.OrderConfirmationFragment"
+        android:name="com.keennhoward.bruntwork.fragments.OrderConfirmationFragment"
         android:label="fragment_order_confirmation"
         tools:layout="@layout/fragment_order_confirmation" >
         <action
             android:id="@+id/action_orderConfirmationFragment_to_productsFragment"
-            app:destination="@id/productsFragment" />
+            app:destination="@id/productsFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/shop_nav"
+            app:popUpToInclusive="true"/>
+        <argument
+            android:name="orderId"
+            app:argType="string"
+            android:defaultValue="No Order" />
     </fragment>
 </navigation>

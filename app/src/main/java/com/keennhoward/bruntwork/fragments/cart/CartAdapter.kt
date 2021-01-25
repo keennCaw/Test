@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.cart
+package com.keennhoward.bruntwork.fragments.cart
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.keennhoward.bruntwork.databinding.ItemCartBinding
 import com.keennhoward.bruntwork.db.room.CartProductModel
 
-class CartAdapter(val listener: CartItemClickListener) : ListAdapter<CartProductModel,CartViewHolder>(CartDiffUtil()) {
 
+class CartAdapter(private val listener: CartItemClickListener) :
+    ListAdapter<CartProductModel, CartViewHolder>(CartDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val cartBinding =
@@ -21,6 +22,7 @@ class CartAdapter(val listener: CartItemClickListener) : ListAdapter<CartProduct
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
+
 }
 
 //cart item click listener interface to pass cartItem onClick
@@ -46,7 +48,7 @@ class CartViewHolder(
 }
 
 //DiffUtil for CartAdapter ListAdapter
-class CartDiffUtil: DiffUtil.ItemCallback<CartProductModel>(){
+class CartDiffUtil : DiffUtil.ItemCallback<CartProductModel>() {
     override fun areItemsTheSame(oldItem: CartProductModel, newItem: CartProductModel): Boolean {
         return oldItem.id == newItem.id
     }

@@ -1,14 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrderConfirmationFragment">
+    tools:context=".fragments.OrderConfirmationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Widget.BruntWork.Title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/order_confirmation_title" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:cardCornerRadius="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_view_border">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/oc_card_top_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bruntwork_orange"
+                    app:shapeAppearanceOverlay="@style/ImageView.BruntWork.Top.Corners20dp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@color/white"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_baseline_star_border_50"
+                    android:tint="@color/black"
+                    app:shapeAppearanceOverlay="@style/circleImageView"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="4dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/oc_card_top_color"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="95dp"
+                        android:text="@string/order_message"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        style="@style/Widget.BruntWork.TextView.Grey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/order_your_order_id_is" />
+
+                    <TextView
+                        android:id="@+id/order_number"
+                        style="@style/Widget.BruntWork.TextView.Grey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#123e4567-e89b-12d3-a456-556642440000"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/oc_return_to_products"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/order_return_to_products"
+            style="@style/Widget.BruntWork.Button.Dark"/>
+    </LinearLayout>
+
 
 </FrameLayout>

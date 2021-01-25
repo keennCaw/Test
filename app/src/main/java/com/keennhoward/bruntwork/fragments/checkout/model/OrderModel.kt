@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.checkout
+package com.keennhoward.bruntwork.fragments.checkout.model
 
 import com.keennhoward.bruntwork.db.room.CartProductModel
 

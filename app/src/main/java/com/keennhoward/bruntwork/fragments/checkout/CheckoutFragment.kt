@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.checkout
+package com.keennhoward.bruntwork.fragments.checkout
 
 import android.os.Bundle
 import android.util.Log
@@ -8,15 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.google.gson.Gson
-import com.keennhoward.bruntwork.R
-import com.keennhoward.bruntwork.cart.CartRepository
-import com.keennhoward.bruntwork.cart.CartViewModel
-import com.keennhoward.bruntwork.cart.CartViewModelFactory
-import com.keennhoward.bruntwork.databinding.FragmentCartBinding
 import com.keennhoward.bruntwork.databinding.FragmentCheckoutBinding
 import com.keennhoward.bruntwork.db.room.CartDatabase
 import com.keennhoward.bruntwork.db.room.CartProductModel
+import com.keennhoward.bruntwork.util.Utils
 import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
@@ -69,12 +66,12 @@ class CheckoutFragment : Fragment() {
                     //create json string
                     val gson = Gson()
                     val json = gson.toJson(
-                        createOrder(
+                        Utils.createOrder(
                             cartProducts,
                             uniqueID,
                             binding.checkoutName.text.toString(),
                             binding.checkoutEmail.text.toString(),
-                            cartTotalPrice(cartProducts).toString()
+                            Utils.cartTotalPrice(cartProducts).toString()
                         )
                     )
 
@@ -84,37 +81,15 @@ class CheckoutFragment : Fragment() {
                             out.println(json)
                         }
                     checkoutViewModel.clearCart()
+
+                    val action = CheckoutFragmentDirections.actionCheckoutFragmentToOrderConfirmationFragment(uniqueID)
+                    Navigation.findNavController(view).navigate(action)
                 } else {
                     Log.d("Checker", "cart not initialized")
                 }
             }
         }
         return view
-    }
-
-    private fun createOrder(
-        cart: ArrayList<CartProductModel>,
-        id: String,
-        name: String,
-        email: String,
-        totalPrice:String
-    ): OrderModel {
-        return OrderModel(
-            id = id,
-            name = name,
-            email = email,
-            products = cart,
-            total_price = totalPrice
-        )
-    }
-
-
-    private fun cartTotalPrice(cart:ArrayList<CartProductModel>):Double{
-        var totalPrice = 0.00
-        for(cartItem in cart){
-            totalPrice += cartItem.price.toDouble()
-        }
-        return totalPrice
     }
 
 }

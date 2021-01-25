@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.products
+package com.keennhoward.bruntwork.fragments.products
 
 import android.os.Bundle
 import android.util.Log
@@ -21,7 +21,6 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
     private val binding get() = _binding!!
 
     //setHasOptions menu to false so action bar does not get updated on fragment change
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(false)
@@ -32,7 +31,6 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
         savedInstanceState: Bundle?
     ): View? {
 
-        // Inflate the layout for this fragment
         _binding = FragmentProductsBinding.inflate(inflater, container, false)
 
         //initialize fragment adapter for recyclerview
@@ -117,6 +115,5 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
             "Added: ${cartProductModel.name} to Cart",
             Toast.LENGTH_SHORT
         )
-        Log.d("product", product.name)
     }
 }

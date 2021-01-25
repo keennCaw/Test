@@ -1,8 +1,7 @@
-package com.keennhoward.bruntwork.checkout
+package com.keennhoward.bruntwork.fragments.checkout
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.keennhoward.bruntwork.cart.CartViewModel
 
 class CheckoutViewModelFactory (private val repository: CheckoutRepository): ViewModelProvider.Factory {
 

@@ -1,6 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Shop</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="products_title">Products</string>
+    <string name="products_category_all">All</string>
+    <string name="products_category_jackets">Jackets</string>
+    <string name="products_category_tees">Tees</string>
+    <string name="products_category_blazers">Blazers</string>
+
+    <string name="cart_title">Cart</string>
+    <string name="cart_buy_now_button">Buy Now</string>
 
     <string name="checkout_title">Checkout</string>
     <string name="et_title_name">Your_name</string>
@@ -9,5 +19,9 @@
     <string name="et_hint_email">e.g jane@company.co</string>
     <string name="checkout_terms_message">I agree to the terms and conditions</string>
 
+    <string name="order_confirmation_title">Order Confirmation</string>
+    <string name="order_message">Your order has been processed</string>
+    <string name="order_your_order_id_is">Your order ID is</string>
+    <string name="order_return_to_products">Return to Products</string>
 
 </resources>

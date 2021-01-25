@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.products
+package com.keennhoward.bruntwork.fragments.products
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

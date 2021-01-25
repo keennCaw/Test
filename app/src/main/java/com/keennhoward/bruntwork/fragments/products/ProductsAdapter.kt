@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.products
+package com.keennhoward.bruntwork.fragments.products
 
 import android.app.Application
 import android.graphics.Bitmap
@@ -15,7 +15,7 @@ import java.util.ArrayList
 class ProductsAdapter(
     private val productData: Product,
     private val application: Application,
-    val listener: ItemClickListener
+    private val listener: ItemClickListener
 ) :
     RecyclerView.Adapter<ProductsViewHolder>() {
 
@@ -43,7 +43,6 @@ class ProductsAdapter(
     fun showListByCategory(categoryList: List<String>) {
         filteredList.clear()
         loop@ for (category in categoryList) {
-            Log.d("category", category)
             when (category) {
                 "All" -> {
                     this.productList = allProductList

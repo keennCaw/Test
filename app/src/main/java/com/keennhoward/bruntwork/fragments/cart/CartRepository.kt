@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.cart
+package com.keennhoward.bruntwork.fragments.cart
 
 import com.keennhoward.bruntwork.db.room.CartDAO
 import com.keennhoward.bruntwork.db.room.CartProductModel

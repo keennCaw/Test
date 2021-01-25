@@ -12,11 +12,19 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:textColor">@color/black</item>
     </style>
-    
+
     <style name="ImageView.BruntWork.CornerSize20Percent" parent="">
         <item name="cornerSize">20%</item>
+    </style>
+
+    <style name="ImageView.BruntWork.Top.Corners20dp" parent="">
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeTopRight">20dp</item>
+    </style>
+
+    <style name="ImageView.BruntWork.Circle" parent="">
+        <item name="cornerSize">50%</item>
     </style>
 
     <style name="Widget.BruntWork.Chip" parent="Widget.MaterialComponents.Chip.Filter">
@@ -28,7 +36,7 @@
         <item name="elevationOverlayEnabled">true</item>
     </style>
 
-    <style name="Widget.BruntWork.Button" parent="Widget.MaterialComponents.Button">
+    <style name="Widget.BruntWork.Button.Light" parent="Widget.MaterialComponents.Button">
         <item name="background">@drawable/add_button_layer</item>
         <item name="android:backgroundTint">@color/bruntwork_orange</item>
         <item name="strokeColor">@color/black</item>
@@ -43,6 +51,13 @@
     <style name="Widget.BruntWork.EditText" parent="Widget.AppCompat.EditText">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>
+        <item name="maxLines">1</item>
+    </style>
+
+    <style name="Widget.BruntWork.Title.Mini" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Widget.BruntWork.Button.Pay" parent="Widget.MaterialComponents.Button">
@@ -53,5 +68,24 @@
         <item name="android:textColor">@color/white</item>
         <item name="strokeColor">@color/black</item>
         <item name="strokeWidth">2dp</item>
+    </style>
+
+    <style name="Widget.BruntWork.Title" parent="Widget.AppCompat.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Widget.BruntWork.Button.Dark" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">10dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/bruntwork_black</item>
+    </style>
+
+    <style name="Widget.BruntWork.TextView.Grey" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/bruntwork_grey</item>
     </style>
 </resources>

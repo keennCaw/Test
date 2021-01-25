@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.cart
+package com.keennhoward.bruntwork.fragments.cart
 
 import android.os.Bundle
 import android.view.*
@@ -11,6 +11,7 @@ import com.keennhoward.bruntwork.R
 import com.keennhoward.bruntwork.databinding.FragmentCartBinding
 import com.keennhoward.bruntwork.db.room.CartDatabase
 import com.keennhoward.bruntwork.db.room.CartProductModel
+import com.keennhoward.bruntwork.util.Utils
 
 
 class CartFragment : Fragment(), CartItemClickListener {
@@ -49,7 +50,7 @@ class CartFragment : Fragment(), CartItemClickListener {
         //cart LiveData observer
         cartViewModel.cart.observe(requireActivity(), Observer {
             cartAdapter.submitList(ArrayList(it))
-            binding.cartTotalTextView.text = "$ ${cartTotalPrice(ArrayList(it))}"
+            binding.cartTotalTextView.text = "$ ${Utils.cartTotalPrice(ArrayList(it))}"
         })
 
         binding.cartBuyNowButton.setOnClickListener {
@@ -62,16 +63,6 @@ class CartFragment : Fragment(), CartItemClickListener {
     //cart delete click listener interface in adapter class which passes cartItem
     override fun onDeleteCartItemClickListener(cartItem: CartProductModel) {
         cartViewModel.delete(cartItem)
-    }
-
-    //get cart Total Price
-    private fun cartTotalPrice(cart:ArrayList<CartProductModel>):Double{
-        var totalPrice = 0.00
-
-        for(cartItem in cart){
-            totalPrice += cartItem.price.toDouble()
-        }
-        return totalPrice
     }
 
 }

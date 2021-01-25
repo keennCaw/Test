@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.cart
+package com.keennhoward.bruntwork.fragments.cart
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

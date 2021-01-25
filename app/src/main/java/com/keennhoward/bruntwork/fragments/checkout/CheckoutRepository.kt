@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.checkout
+package com.keennhoward.bruntwork.fragments.checkout
 
 import com.keennhoward.bruntwork.db.room.CartDAO
 
