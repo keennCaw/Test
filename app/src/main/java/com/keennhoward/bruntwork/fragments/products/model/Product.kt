@@ -1,4 +1,4 @@
-package com.keennhoward.bruntwork.model
+package com.keennhoward.bruntwork.fragments.products.model
 
 data class Product(
         var products: List<ProductData>

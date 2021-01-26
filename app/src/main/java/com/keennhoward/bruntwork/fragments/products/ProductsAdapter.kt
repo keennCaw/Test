@@ -3,13 +3,12 @@ package com.keennhoward.bruntwork.fragments.products
 import android.app.Application
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.RecyclerView
 import com.keennhoward.bruntwork.databinding.ItemProductBinding
-import com.keennhoward.bruntwork.model.Product
+import com.keennhoward.bruntwork.fragments.products.model.Product
 import java.util.ArrayList
 
 class ProductsAdapter(

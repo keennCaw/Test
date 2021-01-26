@@ -16,7 +16,8 @@
             style="@style/Widget.BruntWork.Title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/order_confirmation_title" />
+            android:text="@string/order_confirmation_title"
+            android:textSize="30sp"/>
 
         <androidx.cardview.widget.CardView
             android:layout_marginTop="30dp"
@@ -68,7 +69,7 @@
                         style="@style/Widget.BruntWork.Text.24b"
                         android:layout_marginRight="95dp"
                         android:text="@string/order_message"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -84,7 +85,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="#123e4567-e89b-12d3-a456-556642440000"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:textSize="12sp"/>
                 </LinearLayout>
             </RelativeLayout>
 

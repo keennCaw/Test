@@ -1,9 +1,7 @@
 package com.keennhoward.bruntwork.fragments.products
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Html
-import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,9 +11,8 @@ import androidx.core.graphics.toColorInt
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.keennhoward.bruntwork.R
-import com.keennhoward.bruntwork.databinding.CustomToastBinding
 import com.keennhoward.bruntwork.databinding.FragmentProductsBinding
-import com.keennhoward.bruntwork.model.Product
+import com.keennhoward.bruntwork.fragments.products.model.Product
 import com.keennhoward.bruntwork.db.room.CartDatabase
 import com.keennhoward.bruntwork.db.room.CartProductModel
 
@@ -136,5 +133,6 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
         toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0)
         toast.view = layout
         toast.show()
+        
     }
 }

@@ -2,7 +2,7 @@ package com.keennhoward.bruntwork.fragments.products
 
 import android.app.Application
 import com.google.gson.Gson
-import com.keennhoward.bruntwork.model.Product
+import com.keennhoward.bruntwork.fragments.products.model.Product
 import com.keennhoward.bruntwork.util.Utils
 import com.keennhoward.bruntwork.db.room.CartDAO
 import com.keennhoward.bruntwork.db.room.CartProductModel
