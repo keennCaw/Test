@@ -85,7 +85,7 @@ class ProductsViewHolder(
     fun bind(productData: Product.ProductData) {
         binding.itemName.text = productData.name
         binding.itemCategory.text = productData.category
-        binding.itemPrice.text = "$ ${productData.price}"
+        binding.itemPrice.text = "$${productData.price}"
         binding.itemImageView.setBackgroundColor(productData.bgColor.toColorInt())
 
         //set image from drawable using product id

@@ -33,8 +33,8 @@
                     android:id="@+id/oc_card_top_color"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginTop="3dp"
                     android:background="@color/bruntwork_orange"
                     app:shapeAppearanceOverlay="@style/ImageView.BruntWork.Top.Corners20dp" />
 
@@ -44,13 +44,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="67dp"
                     android:layout_marginRight="30dp"
+                    android:padding="2dp"
                     android:background="@color/white"
                     android:scaleType="center"
                     android:src="@drawable/ic_baseline_star_border_50"
                     android:tint="@color/black"
                     app:shapeAppearanceOverlay="@style/circleImageView"
                     app:strokeColor="@color/black"
-                    app:strokeWidth="4dp" />
+                    app:strokeWidth="2dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

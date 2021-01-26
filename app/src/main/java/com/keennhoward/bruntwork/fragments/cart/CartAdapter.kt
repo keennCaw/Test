@@ -38,7 +38,7 @@ class CartViewHolder(
 
     fun bind(cartItem: CartProductModel) {
         binding.cartItemProductName.text = cartItem.name
-        binding.cartItemPrice.text = cartItem.price
+        binding.cartItemPrice.text = "$${cartItem.price}"
         binding.cartItemBg.setBackgroundColor(cartItem.bgColor.toColorInt())
 
         binding.cartItemDelete.setOnClickListener {

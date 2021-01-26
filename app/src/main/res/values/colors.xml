@@ -12,4 +12,5 @@
     <color name="bruntwork_black">#18191f</color>
     <color name="bruntwork_blue">#1947e5</color>
     <color name="bruntwork_grey">#474a57</color>
+    <color name="bruntwork_grey_light">#a1a1a1</color>
 </resources>

@@ -21,13 +21,12 @@ import com.keennhoward.bruntwork.db.room.CartProductModel
 
 class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
 
-    private var _binding: FragmentProductsBinding? = null
-
     private var parent:View? = null
 
-    private lateinit var productsViewModel: ProductsViewModel
-
+    private var _binding: FragmentProductsBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var productsViewModel: ProductsViewModel
 
     //setHasOptions menu to false so action bar does not get updated on fragment change
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -124,7 +123,7 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
         showToastMessage(product.name, product.bgColor)
     }
 
-
+    //display custom toast message
     private fun showToastMessage(productName:String, bgColor: String){
         val layout = layoutInflater.inflate(R.layout.custom_toast, parent!!.findViewById(R.id.toast_layout))
         val message = "<b>$productName</b> has been added to your cart"
