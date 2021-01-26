@@ -133,6 +133,6 @@ class ProductsFragment : Fragment(), ProductsAdapter.ItemClickListener {
         toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0)
         toast.view = layout
         toast.show()
-        
+
     }
 }

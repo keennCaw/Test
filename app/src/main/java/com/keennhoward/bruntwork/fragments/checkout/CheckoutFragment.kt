@@ -2,6 +2,7 @@ package com.keennhoward.bruntwork.fragments.checkout
 
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +29,8 @@ class CheckoutFragment : Fragment() {
 
     private lateinit var cartProducts: ArrayList<CartProductModel>
 
+    var emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,11 +50,14 @@ class CheckoutFragment : Fragment() {
         })
 
         binding.checkoutButton.setOnClickListener {
+            //checkout fields checker
             if (binding.checkoutName.text.toString().trim().isEmpty()){
                 Toast.makeText(requireContext(),"Please Enter a Name",Toast.LENGTH_SHORT).show()
             }else if(binding.checkoutEmail.text.toString().trim().isEmpty()){
                 Toast.makeText(requireContext(),"Please Enter an Email",Toast.LENGTH_SHORT).show()
-            } else if(!binding.checkoutTermsSwitch.isChecked){
+            }else if(!binding.checkoutEmail.text.toString().trim { it <= ' ' }.matches(emailPattern.toRegex())){
+                Toast.makeText(requireContext(),"Please Enter a valid Email",Toast.LENGTH_SHORT).show()
+            }else if(!binding.checkoutTermsSwitch.isChecked){
                 Toast.makeText(requireContext(),"Agree to the terms and services",Toast.LENGTH_SHORT).show()
             }else{
 
